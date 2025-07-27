@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakuna Matata</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="icon" type="image/jpg" href="easter-egg.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom center/cover no-repeat;
+            pointer-events: none;
+        }
+
+        .profile-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 30px;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            margin: 50px 0;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        /* Tech Stack Slider */
+        .tech-slider {
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .tech-track {
+            display: flex;
+            animation: slide 30s linear infinite;
+            gap: 40px;
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            min-width: 60px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tech-icon i {
+            font-size: 3rem;
+        }
+
+        .tech-icon img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .experience-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .experience-item .company {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .duration {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 15px;
+        }
+
+        /* Resume Section */
+        .resume-container {
+            text-align: center;
+        }
+
+        .resume-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .resume-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .project-description {
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        /* Project Detail Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 2% auto;
+            padding: 0;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 20px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            position: relative;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-project-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .project-link {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            position: sticky; /* Changed to sticky */
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            margin-top: 50px; /* Added margin-top to separate from last section */
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+            color: #ffd700;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 60px 0;
+                margin: 30px 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .contact-info {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="profile-container">
+                <img src="1674412543169.jpg" alt="Profile Picture" class="profile-image">
+                <h1>Bhaumik Yadav</h1>
+                <p>I'm a highly motivated and detail-oriented B.Tech. student with a robust foundation across the entire machine learning lifecycle, from Front-End Development to Data Science and ML Engineering. My expertise spans Computer Vision and Natural Language Processing, and I excel at leveraging my strong analytical skills to develop and implement effective ML solutions. I thrive in fast-paced, dynamic environments, and my experience includes IT/ML consulting and Full Stack ML Development. I'm passionate about solving complex problems through innovation and dedicated to continuous learning and professional growth. With a proven track record in team leadership and collaborative project execution, I'm eager to contribute my technical expertise, adaptability, and leadership to challenging opportunities in Data Science and Machine Learning.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Frontend Development</h3>
+                    <p>Crafting responsive and intuitive user interfaces that enhance user experience.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Data Analytics</h3>
+                    <p>Transforming complex datasets into actionable insights and data-driven strategies.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h3>ML Research and Model Development</h3>
+                    <p>Designing, implementing, and optimizing cutting-edge machine learning models for diverse applications.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Full Stack ML Product Development</h3>
+                    <p>Building and deploying end-to-end machine learning solutions, from concept to production.</p>
+                </div>
+            </div>
+            
+            <div class="tech-slider">
+                <div class="tech-track">
+                    <div class="tech-icon"><i class="devicon-html5-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-css3-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-javascript-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-react-original colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-nodejs-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-python-plain colored"></i></div>
+                    <div class="tech-icon"><img src="Scikit_learn.svg" alt="Scikit-learn"></div>
+                    <div class="tech-icon"><i class="devicon-pytorch-original colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-numpy-original colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-pandas-original colored"></i></div>
+                    <div class="tech-icon"><img src="MSExcel.png" alt="MS Excel"></div>
+                    <div class="tech-icon"><img src="PowerBI.svg" alt="MS PowerBI"></div>
+                    <div class="tech-icon"><i class="devicon-opencv-plain colored"></i></div>
+                    <div class="tech-icon"><img src="seaborn.svg" alt="Seaborn"></div>
+                    <div class="tech-icon"><i class="devicon-git-plain colored"></i></div>
+
+                    <div class="tech-icon"><i class="devicon-html5-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-css3-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-javascript-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-react-original colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-nodejs-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-python-plain colored"></i></div>
+                    <div class="tech-icon"><img src="Scikit_learn.svg" alt="Scikit-learn"></div>
+                    <div class="tech-icon"><i class="devicon-pytorch-original colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-numpy-original colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-pandas-original colored"></i></div>
+                    <div class="tech-icon"><img src="MSExcel.png" alt="MS Excel"></div>
+                    <div class="tech-icon"><img src="PowerBI.svg" alt="MS PowerBI"></div>
+                    <div class="tech-icon"><i class="devicon-opencv-plain colored"></i></div>
+                    <div class="tech-icon"><img src="seaborn.svg" alt="Seaborn"></div>
+                    <div class="tech-icon"><i class="devicon-git-plain colored"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>ML Consultant Intern</h3>
+                <div class="company">Aurigence Technologies</div>
+                <div class="duration">July 2025 - Present</div>
+                <p>Building ML Products using fine tuning and transfer learning to be placed in the market</p>
+                <p>Suggesting better models for ML products placement in the market </p>
+                <p>Scraping and Analyzing data from open sources</p>
+            </div>
+            <div class="experience-item">
+                <h3>Research Intern</h3>
+                <div class="company">DESIDOC DRDO</div>
+                <div class="duration">Feb 2025 - Jun 2025</div>
+                <p>Wrote research analysis over LLMs and LCMs comparing their attributes</p>
+                <p>Did research in the field of NLP/NLU over multiple existent models</p>
+                <p>Completed qualitative analysis of multiple models like BERT, RNN, LSTM, RASA</p>
+                <p>Building a TF-IDF based model and deploying it </p>
+            </div>
+            <div class="experience-item">
+                <h3>ML Intern</h3>
+                <div class="company">TagBin</div>
+                <div class="duration">Nov 2024 - Dec 2024</div>
+                <p>Working upon multiple ML techniques for products in the company</p>
+                <p>Using CV models like yolov8 and yolov11 to develop and deploy working models</p>
+                <p>Qualitative assessment of data that is being fed to the model</p>
+            </div>
+            <div class="experience-item">
+                <h3>Front-End Developer</h3>
+                <div class="company">Spectar Group</div>
+                <div class="duration">Mar 2024 - Apr 2024</div>
+                <p>Creating static and dynamic web pages for clients </p>
+                <p>Utilizing lightweight frameworks like ReactJS and Express JS for better user experience</p>
+                <p>Using Flask to build real time apps</p>
+            </div>
+            <div class="experience-item">
+                <h3>Technical Intern</h3>
+                <div class="company">Staysafe Solutions</div>
+                <div class="duration">July 2023 - Aug 2023</div>
+                <p>Creating static timesheets for clients </p>
+                <p>Utilizing lightweight frameworks like ReactJS and Express JS for better user experience</p>
+                <p>Using Flask to build real time apps</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Resume</h2>
+            <div class="resume-container">
+                <a href="https://drive.google.com/file/d/1YaxYV4Y5UAhkMqrRabCNCSloCbnHm24l/view?usp=drive_link" target="_blank" class="resume-button">
+                    <i class="fas fa-file-pdf"></i> View Resume
+                </a>
+                <p style="margin-top: 20px; opacity: 0.8;">Click to open my resume</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" onclick="openProjectModal('project1')">
+                    <div class="project-image">
+                        <i class="fas fa-chart-bar"></i> </div>
+                    <div class="project-content">
+                        <h3 class="project-title">HR ATTRITION PREDICTION ANALYSIS</h3>
+                        <p class="project-description">A full-stack data science project with dashboards and analysis app</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="openProjectModal('project2')">
+                    <div class="project-image">
+                        <i class="fas fa-heartbeat"></i> </div>
+                    <div class="project-content">
+                        <h3 class="project-title">HEART DISEASE PREDICTION USING ANN</h3>
+                        <p class="project-description">A full-stack ML project with suggestive analysis</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="openProjectModal('project3')">
+                    <div class="project-image">
+                        <i class="fas fa-lightbulb"></i> </div>
+                    <div class="project-content">
+                        <h3 class="project-title">KEYWORDS EXTRACTION USING NLP</h3>
+                        <p class="project-description">An ML Research Based model</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="openProjectModal('project4')">
+                    <div class="project-image">
+                        <i class="fas fa-envelope-open-text"></i> </div>
+                    <div class="project-content">
+                        <h3 class="project-title">SPAM EMAIL DETECTION SYSTEM</h3>
+                        <p class="project-description">Spam Email Detection and Sentiment Analysis using Naive Bayes Method</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" onclick="closeProjectModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/theprofessional-bhaumik-yadav/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/bhaumikmango" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <div class="contact-info">
+            <div>📍 New Delhi, Delhi, India</div>
+            <div>📧 superbhaumik@gmail.com</div>
+        </div>
+    </footer>
+    <script>
+        const projects = {
+            project1: {
+                title: "HR ATTRITION PREDICTION ANALYSIS",
+                image: "fas fa-chart-bar",
+                deployLink: "https://hr-attrition-project-git-main-bhaumiks-projects-006c20ba.vercel.app/",
+                githubLink: "https://github.com/bhaumikmango/HR-Attrition-Prediction",
+                overview: "A full-stack data science project with dashboards and analysis app",
+                description: "Designed and deployed an end-to-end ML web application that predicts employee attrition using a Random Forest Classifier trained on real-world HR data. Conducted detailed EDA in Jupyter, performed feature engineering, and built a fully responsive frontend with real-time predictions. The project integrates model training, backend APIs, and interactive dashboards, demonstrating cross-disciplinary proficiency in ML, web development, and data visualization.",
+                features: [
+                    "Accurate prediction of employee attrition (leave/stay) using 25+ HR features",
+                    "Extensive EDA with correlation heatmaps and feature importance graphs",
+                    "Trained Random Forest model with GridSearchCV for hyperparameter tuning",
+                    "Power BI dashboard for executive-level attrition insights",
+                    "Live deployed app on Vercel for seamless web access",
+                    "Frontend form accepts employee details and returns prediction with confidence score",
+                ],
+                impact: [ 
+                    "Delivering an enterprise-style HR analytics tool that supports decision-making.",
+                    "Identifying the potential employee turnover risks and optimizing retention strategies for reducing attrition."
+                ],
+                techStack: ["Python", "Flask", "Scikit-learn", "Pandas", "NumPy", "Power BI", "HTML", "CSS", "JavaScript"] // Updated tech stack
+            },
+            project2: {
+                title: "HEART DISEASE PREDICTION USING ANN",
+                image: "fas fa-heartbeat",
+                deployLink: "", 
+                githubLink: "https://github.com/bhaumikmango/Heart-Disease-Prediction-using-ANN",
+                overview: "An AI-powered system designed to predict heart disease using Artificial Neural Networks.",
+                description: "Developed and implemented a robust Artificial Neural Network (ANN) model to predict heart disease likelihood based on various health parameters. The project includes data preprocessing, model training, evaluation, and a user-friendly interface for inputting patient data and receiving predictions.",
+                features: [
+                    "Predictive modeling using Artificial Neural Networks (ANN)",
+                    "Data preprocessing for health datasets",
+                    "Intuitive user interface for patient data input",
+                    "Displays prediction results with confidence scores",
+                    "Scalable architecture for potential integration with healthcare systems"
+                ],
+                impact: [ 
+                    "Provides early detection insights for heart disease.",
+                    "Aids healthcare professionals in preliminary risk assessment.",
+                    "Contributes to preventative healthcare measures by identifying high-risk individuals."
+                ],
+                techStack: ["Python", "TensorFlow", "Keras", "Scikit-learn", "Pandas", "NumPy", "Flask"] // Updated tech stack
+            },
+            project3: {
+                title: "KEYWORDS EXTRACTION USING NLP",
+                image: "fas fa-lightbulb",
+                deployLink: "",
+                githubLink: "https://github.com/bhaumikmango/Keywords-Extraction-NLP",
+                overview: "A natural language processing (NLP) project focused on extracting significant keywords from text.",
+                description: "Implemented an NLP-based solution to automatically identify and extract key phrases and keywords from given text documents. This research-oriented project explores various NLP techniques and algorithms to achieve accurate and contextually relevant keyword extraction, useful for summarization, indexing, and information retrieval.",
+                features: [
+                    "Utilizes advanced NLP techniques for keyword extraction",
+                    "Supports multiple text formats and lengths",
+                    "Customizable algorithms for different extraction needs",
+                    "Provides a list of most relevant keywords",
+                    "Can be integrated into larger text processing pipelines"
+                ],
+                impact: [ 
+                    "Automates the process of content summarization and tagging.",
+                    "Enhances information retrieval efficiency in large datasets.",
+                    "Useful for content analysis, SEO, and document organization."
+                ],
+                techStack: ["Python", "NLTK", "SpaCy", "Scikit-learn", "GenSim", "TextRank"] 
+            },
+            project4: {
+                title: "SPAM EMAIL DETECTION SYSTEM",
+                image: "fas fa-envelope-open-text",
+                deployLink: "", 
+                githubLink: "https://github.com/bhaumikmango/SpamEmailDetection",
+                overview: "An intelligent system for detecting spam emails and performing sentiment analysis using the Naive Bayes method.",
+                description: "Developed a robust spam email detection system leveraging the Naive Bayes classification algorithm. The project also incorporates sentiment analysis to classify the tone of emails, providing a comprehensive solution for email management and filtering.",
+                features: [
+                    "High accuracy in distinguishing spam from legitimate emails",
+                    "Implements Naive Bayes algorithm for classification",
+                    "Includes sentiment analysis for email content",
+                    "User-friendly interface for testing email inputs",
+                    "Modular design for easy integration and expansion"
+                ],
+                impact: [
+                    "Significantly reduces unwanted spam in inboxes.",
+                    "Improves user productivity by filtering out irrelevant communication.",
+                    "Offers insights into email sentiment, useful for customer service or feedback analysis."
+                ],
+                techStack: ["Python", "Scikit-learn", "NLTK", "Pandas", "NumPy", "Flask"] 
+            }
+        };
+
+        function openProjectModal(projectId) {
+            const project = projects[projectId];
+            const modal = document.getElementById('projectModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            modalContent.innerHTML = `
+                <div class="modal-project-image">
+                    <i class="${project.image}"></i>
+                </div>
+                <h2>${project.title}</h2>
+                <div class="project-links">
+                    <a href="${project.deployLink}" target="_blank" class="project-link">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                    <a href="${project.githubLink}" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                </div>
+                <div>
+                    <h3>Project Overview</h3>
+                    <p>${project.overview}</p>
+                </div>
+                <div style="margin-top: 30px;">
+                    <h3>Description</h3>
+                    <p>${project.description}</p>
+                </div>
+                <div style="margin-top: 30px;">
+                    <h3>Key Features</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        ${project.features.map(feature => `<li style="margin-bottom: 5px;">${feature}</li>`).join('')}
+                    </ul>
+                </div>
+                <div style="margin-top: 30px;">
+                    <h3>Impact</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        ${project.impact.map(item => `<li style="margin-bottom: 5px;">${item}</li>`).join('')}
+                    </ul>
+                </div>
+                <div style="margin-top: 30px;">
+                    <h3>Tech Stack</h3>
+                    <div class="tech-stack">
+                        ${project.techStack.map(tech => `<span class="tech-badge">${tech}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target == modal) {
+                closeProjectModal();
+            }
+        }
+    </script>
+</body>
+</html>
