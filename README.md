@@ -30,8 +30,8 @@ This project is a modern, responsive, and visually engaging personal portfolio s
 |-----------|------------------------------|---------------|
 | HTML5     | Python, Flask, Scikit-learn  | Power BI      |
 | CSS3      | NumPy, Pandas, NLTK, SpaCy   | MS Excel      |
-| JavaScript| TensorFlow, Keras, OpenCV    |               |
-| ReactJS   | TextRank, Gensim             |               |
+| JavaScript| TensorFlow, Keras, OpenCV    | Tableau       |
+| ReactJS   | TextRank, Gensim             | Seaborn       |
 
 ---
 
