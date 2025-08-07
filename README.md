@@ -38,7 +38,6 @@ This project is a modern, responsive, and visually engaging personal portfolio s
 ## 💼 Project Highlights
 
 ### 🔹 [HR Attrition Prediction Analysis](https://hr-attrition-project-git-main-bhaumiks-projects-006c20ba.vercel.app/)
-> GitHub: [Link](https://github.com/bhaumikmango/HR-Attrition-Prediction)
 
 - Predicts employee attrition using a Random Forest Classifier.
 - Includes EDA, feature importance, and real-time prediction UI.
@@ -57,7 +56,6 @@ This project is a modern, responsive, and visually engaging personal portfolio s
 - Useful for SEO, indexing, and summarization.
 
 ### 🔹 [Spam Email Detection System](https://spam-email-detection-chi.vercel.app/)
-> GitHub: [Link](https://github.com/bhaumikmango/SpamEmailDetection)
 
 - Classifies emails using Naive Bayes algorithm.
 - Adds sentiment analysis of email content.
