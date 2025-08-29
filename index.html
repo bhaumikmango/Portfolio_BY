@@ -56,6 +56,13 @@
             z-index: 1;
         }
 
+        .profile-container h3{
+            max-width: 1000px; 
+            margin-left: 240px; 
+            margin-right: 240px; 
+            margin-bottom: 15px;
+        }
+
         .profile-image {
             width: 200px;
             height: 200px;
@@ -84,7 +91,7 @@
         .header p {
             font-size: 1.2rem;
             opacity: 0.9;
-            max-width: 600px;
+            max-width: 1000px;
             margin: 0 auto;
             line-height: 1.6;
         }
@@ -432,41 +439,70 @@
 </head>
 <body>
     <header class="header">
-        <div class="container">
-            <div class="profile-container">
-                <img src="1674412543169.jpg" alt="Profile Picture" class="profile-image">
-                <h1>Bhaumik Yadav</h1>
-                <p>I'm a highly motivated and detail-oriented B.Tech. student with a robust foundation across the entire machine learning lifecycle, from Front-End Development to Data Science and ML Engineering. My expertise spans Computer Vision and Natural Language Processing, and I excel at leveraging my strong analytical skills to develop and implement effective ML solutions. I thrive in fast-paced, dynamic environments, and my experience includes IT/ML consulting and Full Stack ML Development. I'm passionate about solving complex problems through innovation and dedicated to continuous learning and professional growth. With a proven track record in team leadership and collaborative project execution, I'm eager to contribute my technical expertise, adaptability, and leadership to challenging opportunities in Data Science and Machine Learning.</p>
+        <section class="section">
+            <div class="container">
+                <div class="profile-container">
+                    <img src="1674412543169.jpg" alt="Profile Picture" class="profile-image">
+                    <h1>Bhaumik Yadav</h1>
+                </div>
             </div>
-        </div>
+            <div class="container">
+                <h2 style="margin-top: 50px;">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Frontend Development</h3>
+                        <p>Crafting responsive and intuitive user interfaces that enhance user experience.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Data Analytics</h3>
+                        <p>Transforming complex datasets into actionable insights and data-driven strategies.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-database"></i>
+                        <h3>ML Research and Model Development</h3>
+                        <p>Designing, implementing, and optimizing cutting-edge machine learning models for diverse applications.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Full Stack ML Product Development</h3>
+                        <p>Building and deploying end-to-end machine learning solutions, from concept to production.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fa-brands fa-github"></i>
+                        <h3>Check out my work at ↓</h3>
+                        <p><a href="https://github.com/bhaumikmango" style="color: greenyellow;">GitHub</a></p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-code-branch"></i>
+                        <h3>Backend Development</h3>
+                        <p>Developing robust backend systems with Python, building scalable APIs, integrating ML models, and enabling seamless full-stack deployments.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </header>
 
     <section class="section">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Frontend Development</h3>
-                    <p>Crafting responsive and intuitive user interfaces that enhance user experience.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-server"></i>
-                    <h3>Data Analytics</h3>
-                    <p>Transforming complex datasets into actionable insights and data-driven strategies.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>ML Research and Model Development</h3>
-                    <p>Designing, implementing, and optimizing cutting-edge machine learning models for diverse applications.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-cloud"></i>
-                    <h3>Full Stack ML Product Development</h3>
-                    <p>Building and deploying end-to-end machine learning solutions, from concept to production.</p>
-                </div>
-            </div>
-            
+        <div class="profile-container" style="text-align: justify;">
+            <h2>About Me</h2>
+            <h3>🔹 B.Tech. student with strong expertise across the complete ML lifecycle, bridging Front-End Development, Data Science, and ML Engineering.</h3>
+            <h3>🔹 Hands-on experience in Computer Vision and Natural Language Processing, applying advanced ML techniques to real-world problems.</h3>
+            <h3>🔹 Proficient in Python backend development, building scalable APIs, integrating ML models into production, and deploying full-stack applications.</h3>
+            <h3>🔹 Skilled in IT/ML consulting and full-stack ML solutions, with experience delivering SaaS-based products and industry-specific applications.</h3>
+            <h3>🔹 Strong analytical problem-solver, adept at developing innovative, data-driven solutions and optimizing model performance.</h3>
+            <h3>🔹 Thrives in fast-paced, dynamic environments, with proven adaptability and dedication to continuous learning.</h3>
+            <h3>🔹 Demonstrated leadership in collaborative projects, mentoring peers, and driving impactful results through teamwork.</h3>
+            <h3>🔹 Passionate about innovation and growth, with a long-term vision of leading advancements in Data Science and Machine Learning.</h3>
+        </div>
+
+    </section>
+
+    <section class="section">
+        <div class="container">  
+            <h2>Tech Stack</h2>      
             <div class="tech-slider">
                 <div class="tech-track">
                     <div class="tech-icon"><i class="devicon-python-plain colored"></i></div>
@@ -493,45 +529,56 @@
         <div class="container">
             <h2>Experience</h2>
             <div class="experience-item">
-                <h3>ML Consultant Intern</h3>
+                <h3>ML Consulting Intern</h3>
                 <div class="company">Aurigence Technologies</div>
                 <div class="duration">July 2025 - Present</div>
-                <p>Building ML Products using fine tuning and transfer learning to be placed in the market</p>
-                <p>Suggesting better models for ML products placement in the market </p>
-                <p>Scraping and Analyzing data from open sources</p>
+                <ul>
+                    <li>Built full-stack SaaS-based ML solutions tailored to industry-specific problems, streamlining adoption of AI in client workflows.</li>
+                    <li>Proposed better-performing ML models for market placement, enabling stronger product positioning and competitive differentiation.</li>
+                    <li>Analyzed structured and unstructured data to generate insights for leadership presentations, guiding industry-oriented strategic decisions.</li>
+                    <li>Conducted market research on competitive AI solutions, identifying innovation gaps and future growth opportunities.</li>
+                    <li>Collaborated with cross-functional teams to integrate ML models into client projects, ensuring scalability and measurable performance improvements.</li>
+                </ul>
             </div>
             <div class="experience-item">
                 <h3>Research Intern</h3>
                 <div class="company">DESIDOC DRDO</div>
                 <div class="duration">Feb 2025 - Jun 2025</div>
-                <p>Wrote research analysis over LLMs and LCMs comparing their attributes</p>
-                <p>Did research in the field of NLP/NLU over multiple existent models</p>
-                <p>Completed qualitative analysis of multiple models like BERT, RNN, LSTM, RASA</p>
-                <p>Building a TF-IDF based model and deploying it </p>
+                <ul>
+                    <li>Researched and authored comparative analysis of LLMs vs. LCMs, highlighting key attributes and limitations for AI applications.</li>
+                    <li>Benchmarked multiple NLP/NLU models (BERT, RNN, LSTM, RASA), conducting qualitative and performance-driven analysis to assess practical applicability.</li>
+                    <li>Built a TF-IDF based text classification model, achieving higher accuracy than baseline approaches and contributing to ongoing defense AI research.</li>
+                </ul>
             </div>
             <div class="experience-item">
                 <h3>ML Intern</h3>
                 <div class="company">TagBin</div>
                 <div class="duration">Nov 2024 - Dec 2024</div>
-                <p>Working upon multiple ML techniques for products in the company</p>
-                <p>Using CV models like yolov8 and yolov11 to develop and deploy working models</p>
-                <p>Qualitative assessment of data that is being fed to the model</p>
+                <ul>
+                    <li>Applied computer vision models (YOLOv8 & YOLOv11) to build and deploy real-time object detection systems, enhancing accuracy in company products.</li>
+                    <li>Conducted qualitative data assessments, improving training pipelines and ensuring model robustness in production.</li>
+                    <li>Collaborated with cross-functional teams to integrate ML models into client projects, ensuring scalability and measurable performance improvements.</li>
+                </ul>
             </div>
             <div class="experience-item">
                 <h3>Front-End Developer</h3>
                 <div class="company">Spectar Group</div>
                 <div class="duration">Mar 2024 - Apr 2024</div>
-                <p>Creating static and dynamic web pages for clients </p>
-                <p>Utilizing lightweight frameworks like ReactJS and Express JS for better user experience</p>
-                <p>Using Flask to build real time apps</p>
+                <ul>
+                    <li>Designed and developed responsive static and dynamic websites for clients, improving user engagement with clean UI/UX.</li>
+                    <li>Utilized ReactJS and ExpressJS to deliver lightweight, fast, and scalable solutions aligned with client needs.</li>
+                    <li>Integrated Flask-based real-time features, enabling dynamic interaction and better user experience in web applications.</li>
+                </ul>
             </div>
             <div class="experience-item">
                 <h3>Technical Intern</h3>
                 <div class="company">Staysafe Solutions</div>
                 <div class="duration">July 2023 - Aug 2023</div>
-                <p>Creating static timesheets for clients </p>
-                <p>Utilizing lightweight frameworks like ReactJS and Express JS for better user experience</p>
-                <p>Using Flask to build real time apps</p>
+                <ul>
+                    <li>Automated static timesheets for client organizations, reducing manual effort and improving accuracy.</li>
+                    <li>Built lightweight web apps using ReactJS and ExpressJS, streamlining operational workflows.</li>
+                    <li>Leveraged Flask to develop real-time applications, enabling faster and more reliable client-side processes.</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -540,7 +587,7 @@
         <div class="container">
             <h2>Resume</h2>
             <div class="resume-container">
-                <a href="https://drive.google.com/file/d/1DpAEc6RuhzMQ0rnXleicGAYUaz5-Vb-D/view?usp=sharing" target="_blank" class="resume-button">
+                <a href="https://drive.google.com/file/d/1am1T61QrcDG7rjK96A6EfR3dDX6s0ymJ/view?usp=sharing" target="_blank" class="resume-button">
                     <i class="fas fa-file-pdf"></i> View Resume
                 </a>
                 <p style="margin-top: 20px; opacity: 0.8;">Click to open my resume</p>
@@ -708,69 +755,78 @@
             }
         };
 
-        function openProjectModal(projectId) {
-            const project = projects[projectId];
-            const modal = document.getElementById('projectModal');
-            const modalContent = document.getElementById('modalContent');
-            
-            modalContent.innerHTML = `
-                <div class="modal-project-image">
-                    <i class="${project.image}"></i>
-                </div>
-                <h2>${project.title}</h2>
-                <div class="project-links">
-                    <a href="${project.deployLink}" target="_blank" class="project-link">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
-                    </a>
-                    <a href="${project.githubLink}" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> GitHub Repository
-                    </a>
-                </div>
-                <div>
-                    <h3>Project Overview</h3>
-                    <p>${project.overview}</p>
-                </div>
-                <div style="margin-top: 30px;">
-                    <h3>Description</h3>
-                    <p>${project.description}</p>
-                </div>
-                <div style="margin-top: 30px;">
-                    <h3>Key Features</h3>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        ${project.features.map(feature => `<li style="margin-bottom: 5px;">${feature}</li>`).join('')}
-                    </ul>
-                </div>
-                <div style="margin-top: 30px;">
-                    <h3>Impact</h3>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        ${project.impact.map(item => `<li style="margin-bottom: 5px;">${item}</li>`).join('')}
-                    </ul>
-                </div>
-                <div style="margin-top: 30px;">
-                    <h3>Tech Stack</h3>
-                    <div class="tech-stack">
-                        ${project.techStack.map(tech => `<span class="tech-badge">${tech}</span>`).join('')}
-                    </div>
-                </div>
-            `;
-            
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
+function openProjectModal(projectId) {
+    const project = projects[projectId];
+    const modal = document.getElementById('projectModal');
+    const modalContent = document.getElementById('modalContent');
+    
+    // Generate project links HTML - only include Live Demo if deployLink exists and is not empty
+    let projectLinksHTML = '';
+    if (project.deployLink && project.deployLink.trim() !== '') {
+        projectLinksHTML += `
+            <a href="${project.deployLink}" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+        `;
+    }
+    projectLinksHTML += `
+        <a href="${project.githubLink}" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> GitHub Repository
+        </a>
+    `;
+    
+    modalContent.innerHTML = `
+        <div class="modal-project-image">
+            <i class="${project.image}"></i>
+        </div>
+        <h2>${project.title}</h2>
+        <div class="project-links">
+            ${projectLinksHTML}
+        </div>
+        <div>
+            <h3>Project Overview</h3>
+            <p>${project.overview}</p>
+        </div>
+        <div style="margin-top: 30px;">
+            <h3>Description</h3>
+            <p>${project.description}</p>
+        </div>
+        <div style="margin-top: 30px;">
+            <h3>Key Features</h3>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                ${project.features.map(feature => `<li style="margin-bottom: 5px;">${feature}</li>`).join('')}
+            </ul>
+        </div>
+        <div style="margin-top: 30px;">
+            <h3>Impact</h3>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                ${project.impact.map(item => `<li style="margin-bottom: 5px;">${item}</li>`).join('')}
+            </ul>
+        </div>
+        <div style="margin-top: 30px;">
+            <h3>Tech Stack</h3>
+            <div class="tech-stack">
+                ${project.techStack.map(tech => `<span class="tech-badge">${tech}</span>`).join('')}
+            </div>
+        </div>
+    `;
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
 
-        function closeProjectModal() {
-            const modal = document.getElementById('projectModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+function closeProjectModal() {
+    const modal = document.getElementById('projectModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
 
-        window.onclick = function(event) {
-            const modal = document.getElementById('projectModal');
-            if (event.target == modal) {
-                closeProjectModal();
-            }
-        }
+window.onclick = function(event) {
+    const modal = document.getElementById('projectModal');
+    if (event.target == modal) {
+        closeProjectModal();
+    }
+}
     </script>
 </body>
-
 </html>
