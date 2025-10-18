@@ -7,12 +7,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    <link rel="icon" type="image/jpg" href="easter-egg.jpg">
+    <link rel="icon" type="image/jpg" href="easter-egg.svg">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Helvetica Neue'; 
         }
 
         body {
@@ -58,6 +59,18 @@
             border-radius: 16px;
             background-color: #06131f;
             font-family: "SF Pro Text", Helvetica, sans-serif;
+        }
+
+        .sleek-h3 {
+            font-size: 1.25rem;
+            font-weight: 300;
+            line-height: 1.4;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #828080c7;
+            text-transform: none;
+            letter-spacing: 0.02em;
         }
 
         /* Header Section */
@@ -176,6 +189,10 @@
             color: #ffd700;
         }
 
+        .skill-card h3{
+            font-size:  1.5rem;
+        }
+
         /* Tech Stack Slider */
         .tech-slider {
             overflow: hidden;
@@ -187,7 +204,7 @@
 
         .tech-track {
             display: flex;
-            animation: slide 15s linear infinite;
+            animation: slide 20s linear infinite;
             gap: 50px;
         }
 
@@ -225,21 +242,26 @@
         }
 
         .experience-item h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 10px;
             color: #ffd700;
         }
 
         .experience-item .company {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             opacity: 0.8;
             margin-bottom: 5px;
         }
 
         .experience-item .duration {
-            font-size: 0.9rem;
+            font-size: 1rem;
             opacity: 0.7;
             margin-bottom: 15px;
+        }
+
+        .experience-item li{
+            font-size: 1.2rem;
+            letter-spacing: 0.02em;
         }
 
         /* Resume Section */
@@ -494,7 +516,7 @@
             }
 
             .tech-track {
-                animation-duration: 20s;
+                animation-duration: 40s;
                 gap: 30px;
             }
             
@@ -524,7 +546,7 @@
         <section class="section">
             <div class="container">
                 <div class="profile-container">
-                    <img src="1674412543169.jpg" alt="Profile Picture" class="profile-image">
+                    <img src="me.png" alt="Profile Picture" class="profile-image">
                     <h1>Bhaumik Yadav</h1>
                 </div>
             </div>
@@ -553,7 +575,7 @@
                     </div>
                     <div class="skill-card">
                         <i class="fa-brands fa-github"></i>
-                        <h3>Check out my work at ↓</h3>
+                        <h3>Check out my professional work at ↓</h3>
                         <p><a href="https://github.com/bhaumikmango" style="color: greenyellow;">GitHub</a></p>
                     </div>
                     <div class="skill-card">
@@ -570,14 +592,13 @@
     <section class="section">
         <div class="profile-container" style="text-align: justify;">
             <h2>About Me</h2>
-            <h3>🔹 B.Tech. student with strong expertise across the complete ML lifecycle, bridging Front-End Development, Data Science, and ML Engineering.</h3>
-            <h3>🔹 Hands-on experience in Computer Vision and Natural Language Processing, applying advanced ML techniques to real-world problems.</h3>
-            <h3>🔹 Proficient in Python backend development, building scalable APIs, integrating ML models into production, and deploying full-stack applications.</h3>
-            <h3>🔹 Skilled in IT/ML consulting and full-stack ML solutions, with experience delivering SaaS-based products and industry-specific applications.</h3>
-            <h3>🔹 Strong analytical problem-solver, adept at developing innovative, data-driven solutions and optimizing model performance.</h3>
-            <h3>🔹 Thrives in fast-paced, dynamic environments, with proven adaptability and dedication to continuous learning.</h3>
-            <h3>🔹 Demonstrated leadership in collaborative projects, mentoring peers, and driving impactful results through teamwork.</h3>
-            <h3>🔹 Passionate about innovation and growth, with a long-term vision of leading advancements in Data Science and Machine Learning.</h3>
+            <h3 class="sleek-h3">🔹Enthusiastic and career-oriented individual currently pursuing a Bachelor's in Computer Science (B.Tech.) with strong expertise across the complete Machine Learning lifecycle, seamlessly bridging Front-End Development, Data Science, and ML Engineering to deliver intelligent and scalable systems.</h3>
+            <h3 class="sleek-h3">🔹Hands-on experience in Computer Vision and Natural Language Processing, applying advanced ML techniques to solve real-world challenges — specializing in critical thinking, enhanced prediction modeling, and effective problem-solving strategies tailored for high-impact B2B and enterprise solutions.</h3>
+            <h3 class="sleek-h3">🔹Proficient in Python backend development, building scalable REST APIs, integrating ML models into production pipelines, and deploying end-to-end full-stack AI applications with a focus on reliability, maintainability, and cloud scalability.</h3>
+            <h3 class="sleek-h3">🔹Skilled in IT/ML consulting and developing full-stack ML solutions, with both theoretical and practical experience delivering SaaS-based products, enterprise data systems, and industry-specific AI applications across diverse business verticals.</h3>
+            <h3 class="sleek-h3">🔹Thrives in fast-paced, dynamic environments, demonstrating adaptability and an agile mindset, with a consistent focus on continuous learning, emerging AI technologies, and efficient cross-functional collaboration.</h3>
+            <h3 class="sleek-h3">🔹Proven leadership through collaborative projects, mentoring peers in machine learning and software development practices, and driving measurable results through structured teamwork, innovation, and technical excellence.</h3>
+            <h3 class="sleek-h3">🔹Deeply passionate about innovation and technological growth, with a long-term vision of advancing the frontiers of Data Science, Generative AI, and Machine Learning through impactful, data-driven, and ethically responsible solutions.</h3>
         </div>
 
     </section>
@@ -588,20 +609,34 @@
             <div class="tech-slider">
                 <div class="tech-track">
                     <div class="tech-icon"><i class="devicon-python-plain colored"></i></div>
-                    <div class="tech-icon"><i class="devicon-html5-plain colored"></i></div>
-                    <div class="tech-icon"><i class="devicon-css3-plain colored"></i></div>
-                    <div class="tech-icon"><i class="devicon-javascript-plain colored"></i></div>
-                    <div class="tech-icon"><i class="devicon-react-original colored"></i></div>
-                    <div class="tech-icon"><i class="devicon-nodejs-plain colored"></i></div>
-                    <div class="tech-icon"><img src="Scikit_learn.svg" alt="Scikit-learn"></div>
+                    <div class="tech-icon"><i class="devicon-tensorflow-original colored"></i></div>
                     <div class="tech-icon"><i class="devicon-pytorch-original colored"></i></div>
+                    <div class="tech-icon"><img src="Scikit_learn.svg" alt="Scikit-learn"></div>
+                    <div class="tech-icon"><i class="devicon-javascript-plain colored"></i></div>
                     <div class="tech-icon"><i class="devicon-numpy-original colored"></i></div>
                     <div class="tech-icon"><i class="devicon-pandas-original colored"></i></div>
-                    <div class="tech-icon"><img src="MSExcel.png" alt="MS Excel"></div>
-                    <div class="tech-icon"><img src="PowerBI.svg" alt="MS PowerBI"></div>
+                    <div class="tech-icon"><i class="devicon-github-original colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-git-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-html5-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-docker-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-kubernetes-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-googlecloud-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-azure-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-jenkins-plain colored"></i></div>
                     <div class="tech-icon"><i class="devicon-opencv-plain colored"></i></div>
                     <div class="tech-icon"><img src="seaborn.svg" alt="Seaborn"></div>
-                    <div class="tech-icon"><i class="devicon-git-plain colored"></i></div>   
+                    <div class="tech-icon"><i class="devicon-css3-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-fastapi-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-flask-original colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-postgresql-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-mysql-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-redis-plain colored"></i></div>
+                    <div class="tech-icon"><img src="PowerBI.svg" alt="MS PowerBI"></div>
+                    <div class="tech-icon"><img src="MSExcel.svg" alt="MS Excel"></div>
+                    <div class="tech-icon"><i class="devicon-nodejs-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-express-original colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-graphql-plain colored"></i></div>
+                    <div class="tech-icon"><i class="devicon-react-original colored"></i></div>
                 </div>
             </div>
         </div>
