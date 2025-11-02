@@ -82,11 +82,11 @@
             right: 0;
             padding: 21px 10px;
             display: flex;
-            justify-content: right; /* Right align the links */
+            justify-content: right;
             align-items: center;
             background: rgba(0, 0, 0, 0.5); 
             backdrop-filter: blur(10px);
-            z-index: 1001; /* Ensures it's above everything */
+            z-index: 1001;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -516,77 +516,302 @@
         /* Responsive Design */
         @media (max-width: 1200px) {
             .container {
-                /* Increase side padding slightly for larger mobile/tablet view to prevent content from touching edges */
                 padding: 0 30px; 
+            }
+            
+            .profile-container h3 {
+                margin-left: 150px;
+                margin-right: 150px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            body {
+                padding-top: 55px;
+            }
+
+            .header h1 {
+                font-size: 3rem;
+            }
+
+            .section {
+                padding: 80px 0;
+                margin: 40px 0;
+            }
+
+            .section h2 {
+                font-size: 2.2rem;
+                margin-bottom: 40px;
+            }
+
+            .profile-container h3 {
+                margin-left: 80px;
+                margin-right: 80px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 25px;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 25px;
+            }
+
+            .experience-item {
+                padding: 25px;
+            }
+
+            .experience-item h3 {
+                font-size: 1.6rem;
+            }
+
+            .experience-item .company {
+                font-size: 1.2rem;
+            }
+
+            .experience-item li {
+                font-size: 1.1rem;
             }
         }
 
         @media (max-width: 768px) {
-
             body {
-                padding-top: 50px; /* Reduce padding for smaller screen sizes */
+                padding-top: 50px;
             }
 
-            /* General Adjustments */
+            .container {
+                padding: 0 20px;
+            }
+
+            .header {
+                min-height: 90vh;
+            }
+
             .header h1 {
                 font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+            }
+
+            .profile-image {
+                width: 160px;
+                height: 160px;
+                margin-bottom: 25px;
             }
 
             .section {
                 padding: 60px 0;
                 margin: 30px 0;
+                border-radius: 15px;
             }
 
-            /* Grid Layouts */
+            .section h2 {
+                font-size: 2rem;
+                margin-bottom: 35px;
+            }
+
+            .profile-container h3 {
+                margin-left: 40px;
+                margin-right: 40px;
+                font-size: 1.15rem;
+            }
+
+            .sleek-h3 {
+                font-size: 1.15rem;
+            }
+
             .skills-grid {
-                /* Switch to a more flexible fit for tablets/smaller desktops */
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-    
-            .projects-grid {
-                /* Switch to single column on tablets for easier viewing */
-                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 40px;
             }
 
-            /* Footer Stacking */
+            .skill-card {
+                padding: 25px;
+            }
+
+            .skill-card i {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .skill-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .skill-card p {
+                font-size: 0.95rem;
+            }
+
+            .tech-slider {
+                padding: 20px;
+                margin-top: 30px;
+            }
+
+            .tech-track {
+                animation-duration: 50s;
+                gap: 40px;
+            }
+
+            .tech-icon,
+            .tech-icon i {
+                font-size: 2.5rem;
+                min-width: 55px;
+            }
+
+            .tech-icon img {
+                width: 42px;
+                height: 42px;
+            }
+
+            .experience-item {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+
+            .experience-item h3 {
+                font-size: 1.5rem;
+            }
+
+            .experience-item .company {
+                font-size: 1.15rem;
+            }
+
+            .experience-item .duration {
+                font-size: 0.95rem;
+            }
+
+            .experience-item li {
+                font-size: 1.05rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-image {
+                height: 180px;
+                font-size: 3.5rem;
+            }
+
+            .project-content {
+                padding: 18px;
+            }
+
+            .project-title {
+                font-size: 1.3rem;
+            }
+
+            .project-description {
+                font-size: 1rem;
+            }
+
+            .modal-content {
+                width: 92%;
+                margin: 3% auto;
+            }
+
+            .modal-body {
+                padding: 25px;
+                font-size: 1rem;
+            }
+
+            .modal-project-image {
+                height: 250px;
+                font-size: 5rem;
+                margin-bottom: 25px;
+            }
+
+            .project-links {
+                flex-wrap: wrap;
+            }
+
+            .project-link {
+                padding: 9px 18px;
+                font-size: 0.95rem;
+            }
+
+            .tech-badge {
+                font-size: 1rem;
+                padding: 4px 12px;
+            }
+
+            .resume-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .resume-container {
+                font-size: 1.1rem;
+            }
+
             .footer {
                 flex-direction: column;
                 gap: 15px;
                 text-align: center;
-                padding: 20px 30px; /* Ensure padding is kept for mobile */
+                padding: 20px;
             }
 
             .social-links {
                 justify-content: center;
             }
 
+            .social-links a {
+                font-size: 1.4rem;
+            }
+
+            .libutton,
+            .gitbutton {
+                width: 180px;
+                height: 30px;
+                font-size: 0.95rem;
+            }
+
             .contact-info {
                 text-align: center;
+                font-size: 0.85rem;
             }
 
             .navbar {
-                /* Enable scrolling for horizontal links on smaller screens */
-                justify-content: flex-start; 
+                padding: 15px 10px;
+                justify-content: flex-start;
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
             }
-    
+
             .nav-links {
-                /* Prevent links from wrapping */
                 flex-wrap: nowrap;
                 gap: 15px;
-                padding-right: 20px; /* Add padding to the end of the scrollable list */
+                padding-right: 20px;
             }
 
             .nav-links a {
                 font-size: 0.9rem;
                 padding: 6px 12px;
-                flex-shrink: 0; /* Prevents items from shrinking */
+                flex-shrink: 0;
+                white-space: nowrap;
             }
         }
 
         @media (max-width: 600px) {
-            /* Smaller Mobile Adjustments */
+            body {
+                padding-top: 45px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .header {
+                min-height: 85vh;
+            }
+
             .header h1 {
                 font-size: 2rem;
             }
@@ -594,53 +819,292 @@
             .header p {
                 font-size: 1rem;
             }
-    
-            .section h2 {
-                font-size: 2rem;
-            }
-    
-            /* About Me Section Text Margin Fix */
-            .profile-container h3 {
-                /* Reset large desktop margins and use light side margins */
-                margin: 0 10px 15px 10px;
-                text-align: left !important; /* Force justification reset if needed */
+
+            .profile-image {
+                width: 140px;
+                height: 140px;
+                margin-bottom: 20px;
+                border: 4px solid rgba(255, 255, 255, 0.3);
             }
 
-            /* Skills Grid */
-            .skills-grid {
-                grid-template-columns: 1fr; /* Force single column on small phones */
+            .section {
+                padding: 50px 0;
+                margin: 25px 0;
+                border-radius: 12px;
             }
-    
-            /* Tech Slider Optimization (Slowing down the animation) */
+
+            .section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+
+            .profile-container h3 {
+                margin: 0 10px 15px 10px;
+                font-size: 1.1rem;
+                text-align: left !important;
+                line-height: 1.5;
+            }
+
+            .sleek-h3 {
+                font-size: 1.1rem;
+                margin-top: 15px;
+                padding-bottom: 4px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                margin-bottom: 35px;
+            }
+
+            .skill-card {
+                padding: 22px;
+                border-radius: 12px;
+            }
+
+            .skill-card i {
+                font-size: 2.3rem;
+                margin-bottom: 12px;
+            }
+
+            .skill-card h3 {
+                font-size: 1.25rem;
+                margin-bottom: 8px;
+            }
+
+            .skill-card p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
             .tech-slider {
                 padding: 15px;
+                margin-top: 25px;
+                border-radius: 12px;
             }
 
             .tech-track {
                 animation-duration: 80s;
                 gap: 30px;
             }
-    
+
             .tech-icon,
             .tech-icon i {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
                 min-width: 50px;
             }
 
             .tech-icon img {
-                width: 40px;
-                height: 40px;
+                width: 38px;
+                height: 38px;
             }
 
-            /* Modal Link Stacking */
+            .experience-item {
+                padding: 18px;
+                margin-bottom: 20px;
+                border-radius: 12px;
+                border-left: 3px solid #ff0048;
+            }
+
+            .experience-item h3 {
+                font-size: 1.4rem;
+                margin-bottom: 8px;
+            }
+
+            .experience-item .company {
+                font-size: 1.1rem;
+                margin-bottom: 4px;
+            }
+
+            .experience-item .duration {
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+            }
+
+            .experience-item ul {
+                padding-left: 20px;
+            }
+
+            .experience-item li {
+                font-size: 1rem;
+                margin-bottom: 8px;
+                line-height: 1.5;
+            }
+
+            .projects-grid {
+                gap: 18px;
+            }
+
+            .project-card {
+                border-radius: 12px;
+            }
+
+            .project-image {
+                height: 160px;
+                font-size: 3rem;
+            }
+
+            .project-content {
+                padding: 16px;
+            }
+
+            .project-title {
+                font-size: 1.2rem;
+                margin-bottom: 8px;
+            }
+
+            .project-description {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5vh auto;
+                border-radius: 15px;
+            }
+
+            .modal-header {
+                padding: 15px;
+            }
+
+            .close {
+                top: 15px;
+                right: 20px;
+                font-size: 28px;
+            }
+
+            .modal-body {
+                padding: 20px;
+                font-size: 0.95rem;
+            }
+
+            .modal-body h2 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .modal-body h3 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+
+            .modal-body p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .modal-body ul {
+                padding-left: 18px;
+            }
+
+            .modal-body li {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin-bottom: 6px;
+            }
+
+            .modal-project-image {
+                height: 200px;
+                font-size: 4rem;
+                margin-bottom: 20px;
+                border-radius: 12px;
+            }
+
             .project-links {
                 flex-direction: column;
                 gap: 10px;
             }
 
-            .modal-content {
-                width: 95%; /* Make modal content a bit wider on tiny screens */
-                margin: 5vh auto;
+            .project-link {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                text-align: center;
+                border-radius: 20px;
+            }
+
+            .tech-stack {
+                gap: 8px;
+                margin-top: 15px;
+            }
+
+            .tech-badge {
+                font-size: 0.9rem;
+                padding: 4px 10px;
+                border-radius: 15px;
+            }
+
+            .resume-button {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+            }
+
+            .resume-container {
+                font-size: 1rem;
+            }
+
+            .resume-container p {
+                font-size: 0.9rem;
+                margin-top: 15px;
+            }
+
+            .footer {
+                padding: 18px 15px;
+                gap: 12px;
+                margin-top: 40px;
+            }
+
+            .social-links {
+                gap: 12px;
+            }
+
+            .social-links a {
+                font-size: 1.3rem;
+            }
+
+            .libutton,
+            .gitbutton {
+                width: 160px;
+                height: 28px;
+                font-size: 0.9rem;
+                border-radius: 14px;
+                padding: 6px;
+            }
+
+            .contact-info {
+                font-size: 0.8rem;
+            }
+
+            .contact-info div {
+                margin: 3px 0;
+            }
+
+            .navbar {
+                padding: 12px 8px;
+            }
+
+            .nav-links {
+                gap: 12px;
+                padding-right: 15px;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+                padding: 5px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .section h2 {
+                font-size: 1.6rem;
+            }
+
+            .profile-container h3 {
+                font-size: 1.05rem;
             }
         }
     </style>
