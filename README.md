@@ -60,7 +60,7 @@ This project is a modern, responsive, and visually engaging personal portfolio s
 - Classifies emails using Naive Bayes algorithm.
 - Adds sentiment analysis of email content.
 - Real-time testing interface.
-
+  
 ---
 
 ## 🔧 How to Use Locally
