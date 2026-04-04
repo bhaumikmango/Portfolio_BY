@@ -1,6 +1,6 @@
 # 🌟 Bhaumik Yadav - Portfolio Website
 
-Welcome to the source code repository for my personal portfolio website: [Live Demo 🚀](https://portfolio-by-nu.vercel.app/)
+Welcome to the source code repository for my personal portfolio website: [Live Demo 🚀](https://bhaumik-yadav.vercel.app/)
 
 This project is a modern, responsive, and visually engaging personal portfolio site built using **HTML**, **CSS**, and **JavaScript**. It highlights my skills, experiences, and projects, and acts as a digital resume and project showcase.
 
