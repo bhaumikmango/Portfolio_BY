@@ -711,7 +711,7 @@
       margin-bottom: 10px;
     }
 
-    .-text p {
+    .resume-text p {
       font-size: 0.8rem;
       color: var(--text-dim);
       line-height: 1.7;
@@ -962,7 +962,7 @@
       .exp-item { grid-template-columns: 1fr; }
       .exp-left { border-right: none; border-bottom: 1px solid var(--border); }
       .projects-grid { grid-template-columns: 1fr; }
-      .-block { flex-direction: column; padding: 36px 24px; }
+      .resume-block { flex-direction: column; padding: 36px 24px; }
       footer { flex-direction: column; gap: 20px; text-align: center; padding: 24px 20px; }
     }
 
@@ -1292,9 +1292,36 @@
     <div class="section-label">05 / Work</div>
     <h2 class="section-title">Projects</h2>
     <div class="projects-grid">
-
       <div class="proj-card" onclick="openModal('project1')">
         <div class="proj-num">PROJECT / 01</div>
+        <div class="proj-icon"><i class="fas fa-file-medical-alt"></i></div>
+        <div class="proj-title">Medical RCM - AI Claim Denial Analysis</div>
+        <div class="proj-desc">A 5-layer hybrid AI pipeline combining rule engines, vector retrieval, and LLM-based reasoning (DeepSeek-R1) for automated healthcare claim denial analysis.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">DeepSeek-R1</span>
+          <span class="proj-tag">FastAPI</span>
+          <span class="proj-tag">Ollama</span>
+          <span class="proj-tag">SQLite</span>
+        </div>
+        <div class="proj-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+      </div>
+
+      <div class="proj-card" onclick="openModal('project2')">
+        <div class="proj-num">PROJECT / 02</div>
+        <div class="proj-icon"><i class="fas fa-scale-balanced"></i></div>
+        <div class="proj-title">Quantized Legal Retrieval System</div>
+        <div class="proj-desc">Privacy-preserving AI for legal document intelligence — 4-bit quantization (TurboQuant) cuts memory footprint by ~75%, with async GPU concurrency control.</div>
+        <div class="proj-tags">
+          <span class="proj-tag">4-bit Quant</span>
+          <span class="proj-tag">FastAPI</span>
+          <span class="proj-tag">Ollama</span>
+          <span class="proj-tag">CUDA</span>
+        </div>
+        <div class="proj-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+      </div>
+
+      <div class="proj-card" onclick="openModal('project3')">
+        <div class="proj-num">PROJECT / 03</div>
         <div class="proj-icon"><i class="fas fa-fire"></i></div>
         <div class="proj-title">Fire & Smoke Detection Software</div>
         <div class="proj-desc">Production-ready CV API for real-time detection using YOLOv8, FastAPI, and NVIDIA CUDA acceleration with TensorRT FP16 quantization.</div>
@@ -1307,22 +1334,8 @@
         <div class="proj-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
       </div>
 
-      <div class="proj-card" onclick="openModal('project2')">
-        <div class="proj-num">PROJECT / 02</div>
-        <div class="proj-icon"><i class="fas fa-scale-balanced"></i></div>
-        <div class="proj-title">Quantized Legal Retrieval System - pl<strong>AI</strong>ntiff RAG</div>
-        <div class="proj-desc">Privacy-preserving AI for legal document intelligence — 4-bit quantization (TurboQuant) cuts memory footprint by ~75%, with async GPU concurrency control and siloed multi-tenant architecture.</div>
-        <div class="proj-tags">
-          <span class="proj-tag">4-bit Quant</span>
-          <span class="proj-tag">FastAPI</span>
-          <span class="proj-tag">Ollama</span>
-          <span class="proj-tag">CUDA</span>
-        </div>
-        <div class="proj-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
-      </div>
-
-      <div class="proj-card" onclick="openModal('project3')">
-        <div class="proj-num">PROJECT / 03</div>
+      <div class="proj-card" onclick="openModal('project4')">
+        <div class="proj-num">PROJECT / 04</div>
         <div class="proj-icon"><i class="fas fa-chart-bar"></i></div>
         <div class="proj-title">HR Attrition Prediction System</div>
         <div class="proj-desc">Enterprise full-stack ML app with predictive analytics, Power BI dashboards, and real-time API-driven insights deployed on Vercel.</div>
@@ -1331,20 +1344,6 @@
           <span class="proj-tag">Flask</span>
           <span class="proj-tag">Power BI</span>
           <span class="proj-tag">Vercel</span>
-        </div>
-        <div class="proj-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
-      </div>
-
-      <div class="proj-card" onclick="openModal('project4')">
-        <div class="proj-num">PROJECT / 04</div>
-        <div class="proj-icon"><i class="fas fa-heartbeat"></i></div>
-        <div class="proj-title">Heart Disease Prediction (ANN)</div>
-        <div class="proj-desc">AI-driven healthcare application leveraging Artificial Neural Networks for early cardiovascular risk prediction with Flask API serving.</div>
-        <div class="proj-tags">
-          <span class="proj-tag">TensorFlow</span>
-          <span class="proj-tag">Keras</span>
-          <span class="proj-tag">Flask</span>
-          <span class="proj-tag">ANN</span>
         </div>
         <div class="proj-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
       </div>
@@ -1376,7 +1375,6 @@
         </div>
         <div class="proj-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
       </div>
-
     </div>
   </section>
 
@@ -1387,9 +1385,9 @@
     <div class="resume-block">
       <div class="resume-text">
         <h3>Full Curriculum Vitae</h3>
-        <p>Download or view my complete resume covering education, internship experience,<br>projects, and technical skills — updated 2026.</p>
+        <p>Download or view my complete resume covering education, internship experience,<br>projects, and technical skills — updated <span id="dynamic-year"></span>.</p>
       </div>
-      <a href="https://drive.google.com/file/d/1_7Plptuhq5fOx7Gd2qfpC0gqeZ4EX6Sa/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="white-space:nowrap; flex-shrink:0;">
+      <a href="https://drive.google.com/file/d/1CTJF7NATFhwkRt-P7oMQ4cid_oMtXn1I/view" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="white-space:nowrap; flex-shrink:0;">
         <i class="fas fa-file-pdf"></i> Open Resume
       </a>
     </div>
@@ -1449,6 +1447,48 @@
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const projects = {
       project1: {
+        title: "Medical RCM - AI-Powered Claim Denial Analysis",
+        icon: "fas fa-file-medical-alt",
+        deployLink: "",
+        githubLink: "https://github.com/bhaumikmango/Medical-RCM-Revenue_Cycle_Management-Pipeline",
+        overview: "A production-grade pipeline for automated healthcare insurance claim denial analysis. Combines a deterministic rule engine with locally hosted DeepSeek-R1:8B reasoning to identify denial root causes, assess recoverability, and surface batch-level recovery opportunities.",
+        description: "Engineered a 5-Layer Hybrid Architecture to process 835 Remittance and 837 Claim data. The system utilizes a deterministic rule engine for factual checks (date math, modifiers) and routes complex cases to a CPU-pinned 4-bit quantized vector store (TurboStore) for historical pattern matching. DeepSeek-R1 handles the final interpretative reasoning, achieving 100% classification accuracy on evaluated datasets.",
+        features: [
+          "5-Layer Hybrid Model ensuring factual accuracy via deterministic pre-analysis before LLM evaluation",
+          "Custom TurboStore vector search using 4-bit scalar quantization and memory-mapped indexing (np.memmap)",
+          "DeepSeek-R1:8B integration via Ollama for local, privacy-preserving chain-of-thought reasoning",
+          "KMeans clustering on denied claim feature vectors to surface systemic batch recovery opportunities",
+          "FastAPI web dashboard and CLI for seamless processing and trend reporting"
+        ],
+        impact: [
+          "Achieved 100% overall accuracy and 100% deterministic rule accuracy on ground-truth labeled claims",
+          "Eliminated per-claim API costs and maintained strict PHI data privacy by hosting the LLM entirely locally",
+          "Estimated throughput of ~246 claims/hour on consumer hardware, sufficient for a mid-size billing team's daily volume"
+        ],
+        techStack: ["Python", "FastAPI", "DeepSeek-R1", "Ollama", "SQLite", "NumPy", "Scikit-learn"]
+      },
+      project2: {
+        title: "Quantized Legal Retrieval System (plAIntiff)",
+        icon: "fas fa-scale-balanced",
+        deployLink: "",
+        githubLink: "https://github.com/bhaumikmango/plAIntiff-RAG",
+        overview: "Privacy-preserving AI system for legal document intelligence — featuring custom 4-bit quantization (TurboQuant) reducing memory footprint by ~75%, with siloed multi-tenant architecture ensuring 100% data isolation.",
+        description: "Engineered a production-grade legal document retrieval system combining quantization research, memory-mapped indexing, and retrieval-augmented generation (RAG). TurboQuant — a custom 4-bit quantization layer — reduces vector store memory by ~75%, while memory-mapped indexing enables search on datasets that exceed available RAM. Async concurrency control prevents GPU out-of-memory errors, and siloed multi-tenant architecture guarantees complete data isolation per client.",
+        features: [
+          "TurboQuant: custom 4-bit quantization reducing memory footprint by ~75%",
+          "Memory-Mapped Indexing (np.memmap) enabling vector search on datasets exceeding RAM limits",
+          "Async concurrency control on FastAPI endpoints preventing GPU OOM errors",
+          "Siloed multi-tenant architecture ensuring 100% data isolation between clients",
+          "RAG pipeline powered by Ollama (Llama 3) with Supabase vector storage"
+        ],
+        impact: [
+          "~75% reduction in memory footprint via TurboQuant 4-bit quantization",
+          "100% data isolation across tenants — production-ready privacy-preserving architecture",
+          "Enabled search on legal corpora exceeding available RAM through memory-mapped indexing"
+        ],
+        techStack: ["Python", "FastAPI", "NumPy", "Ollama (Llama 3)", "Supabase", "CUDA"]
+      },
+      project3: {
         title: "Fire & Smoke Detection API",
         icon: "fas fa-fire",
         deployLink: "",
@@ -1459,17 +1499,16 @@
           "Fine-tuned YOLOv8 with advanced augmentations (mosaic, mixup) — achieving ~92% detection accuracy",
           "GPU Acceleration via TensorRT FP16 quantization reducing inference latency by ~40%",
           "RESTful FastAPI endpoints for /predict and /health routes",
-          "NVIDIA CUDA-enabled multi-stage Docker build for production deployment",
-          "Benchmarked inference performance across PyTorch, ONNX, and TensorRT formats"
+          "NVIDIA CUDA-enabled multi-stage Docker build for production deployment"
         ],
         impact: [
           "~92% detection accuracy in real-time fire and smoke monitoring scenarios",
           "~40% reduction in inference latency via GPU acceleration — enabling edge and cloud deployment",
           "Demonstrated full MLOps pipeline from data preprocessing to GPU-optimized inference"
         ],
-        techStack: ["Python", "YOLOv8", "FastAPI", "PyTorch", "TensorRT", "ONNX", "CUDA", "Docker", "Git/GitHub"]
+        techStack: ["Python", "YOLOv8", "FastAPI", "PyTorch", "TensorRT", "ONNX", "CUDA", "Docker"]
       },
-      project3: {
+      project4: {
         title: "HR Attrition Prediction Platform",
         icon: "fas fa-chart-bar",
         deployLink: "https://hr-attrition-project-git-main-bhaumiks-projects-006c20ba.vercel.app/",
@@ -1480,37 +1519,16 @@
           "Full ML lifecycle: EDA on 10K+ records → Training → API Deployment → Dashboard Visualization",
           "GridSearchCV hyperparameter tuning for Random Forest Classifier",
           "Interactive Power BI dashboards improving executive decision visibility by ~30%",
-          "Confidence-based prediction metrics rendered in the responsive front-end",
           "Vercel deployment with CI/CD for versioned, production-ready hosting"
         ],
         impact: [
           "Interactive dashboard integration improving decision visibility for HR leadership by ~30%",
-          "Enabled data-driven attrition risk identification and talent retention strategies",
-          "Demonstrated cross-functional ML and web engineering across a full product lifecycle"
+          "Enabled data-driven attrition risk identification and talent retention strategies"
         ],
-        techStack: ["Python", "Flask", "Scikit-learn", "Pandas", "NumPy", "Power BI", "HTML", "CSS", "JavaScript", "Bootstrap", "Vercel", "Git"]
-      },
-      project4: {
-        title: "Heart Disease Prediction (ANN)",
-        icon: "fas fa-heartbeat",
-        deployLink: "",
-        githubLink: "https://github.com/bhaumikmango/Heart-Disease-Prediction-using-ANN",
-        overview: "AI-driven healthcare application leveraging Artificial Neural Networks for early cardiovascular disease risk prediction.",
-        description: "Robust ANN for cardiovascular risk prediction incorporating data normalization, stratified sampling, hyperparameter tuning, and performance evaluation. Flask-based backend serves live inferences from the trained model, with a modular codebase designed for real-world deployment and healthcare API integration.",
-        features: [
-          "ANN architecture designed using TensorFlow and Keras",
-          "Data normalization and stratified sampling for model generalization",
-          "Flask API endpoints for model serving and seamless healthcare integration",
-          "Modular codebase enabling scalability and future real-world deployment"
-        ],
-        impact: [
-          "Supports early cardiovascular risk detection through data-driven AI inference",
-          "Bridges healthcare analytics and practical AI implementation for scalable insights"
-        ],
-        techStack: ["Python", "TensorFlow", "Keras", "Scikit-learn", "Pandas", "NumPy", "Flask", "Git/GitHub"]
+        techStack: ["Python", "Flask", "Scikit-learn", "Pandas", "Power BI", "Vercel"]
       },
       project5: {
-        title: "Intelligent Keyword Extraction Engine (NLP)",
+        title: "Intelligent Keyword Extraction Engine",
         icon: "fas fa-lightbulb",
         deployLink: "https://intelligentkeywordextractionenginen.vercel.app/",
         githubLink: "https://github.com/bhaumikmango/Keywords-Extraction-NLP",
@@ -1520,15 +1538,13 @@
           "Keyword extraction via TF-IDF, TextRank, and Transformer-based embeddings",
           "MLflow-based model versioning tracked through Dagshub for experiment management",
           "REST API deployment achieving <100ms inference latency",
-          "Large corpus processing with context-based scoring and linguistic preprocessing",
           "Deployed on Vercel and Render for scalable, production-grade availability"
         ],
         impact: [
           "REST API inference latency under 100ms — suitable for real-time content pipelines",
-          "Improved information retrieval efficiency and SEO-driven content tagging",
-          "Enabled semantic search capabilities and text summarization workflows"
+          "Improved information retrieval efficiency and SEO-driven content tagging"
         ],
-        techStack: ["Python", "Scikit-learn", "NLTK", "MLflow", "Dagshub", "Flask", "HTML", "CSS", "JavaScript", "Vercel", "Render"]
+        techStack: ["Python", "Scikit-learn", "NLTK", "MLflow", "Flask", "Vercel", "Render"]
       },
       project6: {
         title: "Spam Detection & Sentiment Classifier",
@@ -1540,7 +1556,6 @@
         features: [
           "Naive Bayes algorithm for accurate spam classification",
           "Sentiment analysis module for email tone and polarity detection",
-          "Custom REST APIs for integration into email clients and third-party tools",
           "Fast and responsive front-end UI for live testing and demonstration",
           "Deployed on Vercel with backend containerization support via Docker"
         ],
@@ -1548,31 +1563,16 @@
           "Increased email management efficiency by automating spam identification",
           "Demonstrated practical NLP pipeline integration in real-world communication systems"
         ],
-        techStack: ["Python", "Scikit-learn", "NLTK", "Flask", "Pandas", "NumPy", "JavaScript", "HTML", "CSS", "Docker", "Vercel"]
-      },
-      project2: {
-        title: "Quantized Legal Retrieval System",
-        icon: "fas fa-scale-balanced",
-        deployLink: "",
-        githubLink: "https://github.com/bhaumikmango/plAIntiff-RAG",
-        overview: "Privacy-preserving AI system for legal document intelligence — featuring custom 4-bit quantization (TurboQuant) reducing memory footprint by ~75%, with siloed multi-tenant architecture ensuring 100% data isolation.",
-        description: "Engineered a production-grade legal document retrieval system combining quantization research, memory-mapped indexing, and retrieval-augmented generation (RAG). TurboQuant — a custom 4-bit quantization layer — reduces vector store memory by ~75%, while memory-mapped indexing enables search on datasets that exceed available RAM. Async concurrency control prevents GPU out-of-memory errors, and siloed multi-tenant architecture guarantees complete data isolation per client.",
-        features: [
-          "TurboQuant: custom 4-bit quantization reducing memory footprint by ~75%",
-          "Memory-Mapped Indexing (np.memmap) enabling vector search on datasets exceeding RAM limits",
-          "Async concurrency control on FastAPI endpoints preventing GPU OOM errors",
-          "Siloed multi-tenant architecture ensuring 100% data isolation between clients",
-          "RAG pipeline powered by Ollama (Llama 3) with Supabase vector storage",
-          "PDF parsing via PyMuPDF (fitz) with Pydantic v2 validation throughout"
-        ],
-        impact: [
-          "~75% reduction in memory footprint via TurboQuant 4-bit quantization",
-          "100% data isolation across tenants — production-ready privacy-preserving architecture",
-          "Enabled search on legal corpora exceeding available RAM through memory-mapped indexing"
-        ],
-        techStack: ["Python", "FastAPI", "NumPy", "PyMuPDF (fitz)", "Pydantic v2", "Ollama (Llama 3)", "Supabase", "CUDA"]
+        techStack: ["Python", "Scikit-learn", "NLTK", "Flask", "Pandas", "Docker", "Vercel"]
       }
     };
+
+    /* ── Dynamic IST Year Logic ── */
+    const yearSpan = document.getElementById('dynamic-year');
+    if (yearSpan) {
+      const istDate = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata', year: 'numeric' });
+      yearSpan.textContent = istDate;
+    }
 
     /* ── Safe DOM builder helpers ── */
     function el(tag, className) {
