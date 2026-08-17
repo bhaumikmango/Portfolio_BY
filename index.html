@@ -524,81 +524,65 @@
 
     .tech-item i { font-size: 1.3rem; }
 
-    /* ═══ EXPERIENCE ═══ */
-    .exp-item {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 0;
-      border: 1px solid var(--border);
-      margin-bottom: 2px;
-      transition: border-color 0.3s;
-      position: relative;
+    /* ═══ EXPERIENCE — ZIGZAG TIMELINE ═══ */
+    .exp-timeline{position:relative;padding:20px 0 40px;}
+
+    /* Central vertical line */
+    .exp-timeline::before{
+      content:'';position:absolute;left:50%;top:0;bottom:0;
+      width:1px;
+      background:linear-gradient(to bottom,transparent,var(--amber-dim) 5%,var(--amber-dim) 95%,transparent);
+      transform:translateX(-50%);
     }
 
-    .exp-item:hover { border-color: var(--amber-dim); }
-
-    .exp-item::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: transparent;
-      transition: background 0.3s;
+    .exp-entry{
+      display:grid;
+      grid-template-columns:1fr 60px 1fr;
+      margin-bottom:48px;
+      align-items:start;
+      position:relative;
     }
 
-    .exp-item:hover::before { background: var(--amber); }
-
-    .exp-left {
-      padding: 28px 24px;
-      border-right: 1px solid var(--border);
+    /* Centre dot */
+    .exp-dot{
+      display:flex;align-items:flex-start;justify-content:center;
+      padding-top:30px;position:relative;z-index:2;
     }
-
-    .exp-date {
-      font-size: 0.65rem;
-      color: var(--amber);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
+    .exp-dot-inner{
+      width:14px;height:14px;border-radius:50%;
+      background:var(--paper);border:2px solid var(--amber);
+      flex-shrink:0;transition:background 0.3s;
     }
+    .exp-entry:hover .exp-dot-inner{background:var(--amber);}
 
-    .exp-role {
-      font-family: var(--display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 6px;
+    /* Card shared */
+    .exp-card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid var(--border);
+      padding:28px;
+      position:relative;
+      transition:border-color 0.3s,background 0.3s;
     }
+    .exp-card:hover{border-color:var(--amber-dim);background:var(--amber-glow);}
+    .exp-card::before{content:'';position:absolute;top:0;bottom:0;left:0;width:3px;background:transparent;transition:background 0.3s;}
+    .exp-card:hover::before{background:var(--amber);}
 
-    .exp-company {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-    }
+    /* LEFT entries — card col 0, dot col 1, empty col 2 */
+    .exp-entry.left .exp-card{grid-column:1;grid-row:1;}
+    .exp-entry.left .exp-dot{grid-column:2;grid-row:1;}
+    .exp-entry.left .exp-empty{grid-column:3;grid-row:1;}
 
-    .exp-right {
-      padding: 28px 32px;
-    }
+    /* RIGHT entries — empty col 0, dot col 1, card col 2 */
+    .exp-entry.right .exp-empty{grid-column:1;grid-row:1;}
+    .exp-entry.right .exp-dot{grid-column:2;grid-row:1;}
+    .exp-entry.right .exp-card{grid-column:3;grid-row:1;}
 
-    .exp-right ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .exp-right li {
-      font-size: 0.78rem;
-      color: var(--text-dim);
-      line-height: 1.7;
-      padding-left: 16px;
-      position: relative;
-    }
-
-    .exp-right li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--amber);
-    }
+    .exp-date{font-size:0.65rem;color:var(--amber);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;}
+    .exp-role{font-family:var(--display);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px;}
+    .exp-company{font-size:0.75rem;color:var(--text-dim);margin-bottom:20px;}
+    .exp-card ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .exp-card li{font-size:0.78rem;color:var(--text-dim);line-height:1.7;padding-left:16px;position:relative;}
+    .exp-card li::before{content:'▸';position:absolute;left:0;color:var(--amber);}
 
     /* ═══ PROJECTS ═══ */
     .projects-grid {
@@ -959,8 +943,12 @@
 
       .skills-grid { grid-template-columns: 1fr 1fr; }
       .about-grid { grid-template-columns: 1fr; }
-      .exp-item { grid-template-columns: 1fr; }
-      .exp-left { border-right: none; border-bottom: 1px solid var(--border); }
+      /* Timeline collapses to single column */
+      .exp-timeline::before{left:20px;}
+      .exp-entry{grid-template-columns:40px 1fr;}
+      .exp-entry.left .exp-card,.exp-entry.right .exp-card{grid-column:2;grid-row:1;}
+      .exp-entry.left .exp-dot,.exp-entry.right .exp-dot{grid-column:1;grid-row:1;justify-content:center;}
+      .exp-entry.left .exp-empty,.exp-entry.right .exp-empty{display:none;}
       .projects-grid { grid-template-columns: 1fr; }
       .resume-block { flex-direction: column; padding: 36px 24px; }
       footer { flex-direction: column; gap: 20px; text-align: center; padding: 24px 20px; }
@@ -1189,101 +1177,111 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
+  <!-- EXPERIENCE — ZIGZAG TIMELINE -->
   <section id="experience">
     <div class="section-label">04 / Career</div>
     <h2 class="section-title">Experience</h2>
 
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-date">Jan 2026 – Present</div>
-        <div class="exp-role">Programmer Analyst</div>
-        <div class="exp-company">Argusoft</div>
-      </div>
-      <div class="exp-right">
-        <ul>
-          <li>Engineered backend REST APIs using Java (SpringBoot), supporting internal product features and improving system integration.</li>
-          <li>Integrated AI-based automation modules into application workflows to enhance data-driven decision processes.</li>
-          <li>Improved backend query performance through database optimization and caching strategies.</li>
-          <li>Collaborated with an 8–10 member engineering team in feature development and product deployment.</li>
-        </ul>
-      </div>
-    </div>
+    <div class="exp-timeline">
 
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-date">Jul – Aug 2025</div>
-        <div class="exp-role">ML Consulting Intern</div>
-        <div class="exp-company">Aurigence Technologies</div>
+      <!-- 1 LEFT -->
+      <div class="exp-entry left">
+        <div class="exp-card">
+          <div class="exp-date">Jan 2026 – Present</div>
+          <div class="exp-role">Programmer Analyst</div>
+          <div class="exp-company">Argusoft</div>
+          <ul>
+            <li>Engineered backend REST APIs using Java (SpringBoot), supporting internal product features and improving system integration.</li>
+            <li>Integrated AI-based automation modules into application workflows to enhance data-driven decision processes.</li>
+            <li>Improved backend query performance through database optimization and caching strategies.</li>
+            <li>Collaborated with an 8–10 member engineering team in feature development and product deployment.</li>
+          </ul>
+        </div>
+        <div class="exp-dot"><div class="exp-dot-inner"></div></div>
+        <div class="exp-empty"></div>
       </div>
-      <div class="exp-right">
-        <ul>
-          <li>Developed ML SaaS applications enabling AI-driven automation across business workflows and upgrading operational efficiency.</li>
-          <li>Performed statistical analysis on datasets with 10k+ records, generating insights leading to data-driven decision-making.</li>
-          <li>Evaluated 10+ tech solutions/tools, identifying technology gaps and recommending opportunities for product innovation.</li>
-          <li>Collaborated within a 4–6 member cross-functional team to integrate ML models into scalable applications.</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-date">Feb – Jun 2025</div>
-        <div class="exp-role">Research Intern</div>
-        <div class="exp-company">DESIDOC · DRDO</div>
+      <!-- 2 RIGHT -->
+      <div class="exp-entry right">
+        <div class="exp-empty"></div>
+        <div class="exp-dot"><div class="exp-dot-inner"></div></div>
+        <div class="exp-card">
+          <div class="exp-date">Jul – Aug 2025</div>
+          <div class="exp-role">ML Consulting Intern</div>
+          <div class="exp-company">Aurigence Technologies</div>
+          <ul>
+            <li>Developed ML SaaS applications enabling AI-driven automation across business workflows and upgrading operational efficiency.</li>
+            <li>Performed statistical analysis on datasets with 10k+ records, generating insights leading to data-driven decision-making.</li>
+            <li>Evaluated 10+ tech solutions/tools, identifying technology gaps and recommending opportunities for product innovation.</li>
+            <li>Collaborated within a 4–6 member cross-functional team to integrate ML models into scalable applications.</li>
+          </ul>
+        </div>
       </div>
-      <div class="exp-right">
-        <ul>
-          <li>Benchmarked NLP models including BERT, RNN, LSTM and RASA for conversational AI systems.</li>
-          <li>Engineered TF-IDF based text classification pipeline achieving ~95% accuracy on evaluation dataset.</li>
-          <li>Analyzed architectural differences between Large Language Models (LLMs) and Large Concept Models (LCMs) using segmented SONAR textual datasets (~15K records).</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-date">Nov – Dec 2024</div>
-        <div class="exp-role">ML Intern</div>
-        <div class="exp-company">TagBin</div>
+      <!-- 3 LEFT -->
+      <div class="exp-entry left">
+        <div class="exp-card">
+          <div class="exp-date">Feb – Jun 2025</div>
+          <div class="exp-role">Research Intern</div>
+          <div class="exp-company">DESIDOC · DRDO</div>
+          <ul>
+            <li>Benchmarked NLP models including BERT, RNN, LSTM and RASA for conversational AI systems.</li>
+            <li>Engineered TF-IDF based text classification pipeline achieving ~95% accuracy on evaluation dataset.</li>
+            <li>Analyzed architectural differences between Large Language Models (LLMs) and Large Concept Models (LCMs) using segmented SONAR textual datasets (~15K records).</li>
+          </ul>
+        </div>
+        <div class="exp-dot"><div class="exp-dot-inner"></div></div>
+        <div class="exp-empty"></div>
       </div>
-      <div class="exp-right">
-        <ul>
-          <li>Deployed YOLOv8 & YOLOv11 real-time object detection systems into production.</li>
-          <li>Conducted qualitative data assessments, improving training pipelines for robustness.</li>
-          <li>Integrated ML models into client projects ensuring scalability and measurable gains.</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-date">Mar – Apr 2024</div>
-        <div class="exp-role">Front-End Developer</div>
-        <div class="exp-company">Spectar Group</div>
+      <!-- 4 RIGHT -->
+      <div class="exp-entry right">
+        <div class="exp-empty"></div>
+        <div class="exp-dot"><div class="exp-dot-inner"></div></div>
+        <div class="exp-card">
+          <div class="exp-date">Nov – Dec 2024</div>
+          <div class="exp-role">ML Intern</div>
+          <div class="exp-company">TagBin</div>
+          <ul>
+            <li>Deployed YOLOv8 & YOLOv11 real-time object detection systems into production.</li>
+            <li>Conducted qualitative data assessments, improving training pipelines for robustness.</li>
+            <li>Integrated ML models into client projects ensuring scalability and measurable gains.</li>
+          </ul>
+        </div>
       </div>
-      <div class="exp-right">
-        <ul>
-          <li>Designed responsive static and dynamic websites improving user engagement.</li>
-          <li>Delivered lightweight, scalable solutions using ReactJS and ExpressJS.</li>
-          <li>Integrated Flask-based real-time features for dynamic user interaction.</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-date">Jul – Aug 2023</div>
-        <div class="exp-role">Technical Intern</div>
-        <div class="exp-company">Staysafe Solutions</div>
+      <!-- 5 LEFT -->
+      <div class="exp-entry left">
+        <div class="exp-card">
+          <div class="exp-date">Mar – Apr 2024</div>
+          <div class="exp-role">Front-End Developer</div>
+          <div class="exp-company">Spectar Group</div>
+          <ul>
+            <li>Designed responsive static and dynamic websites improving user engagement.</li>
+            <li>Delivered lightweight, scalable solutions using ReactJS and ExpressJS.</li>
+            <li>Integrated Flask-based real-time features for dynamic user interaction.</li>
+          </ul>
+        </div>
+        <div class="exp-dot"><div class="exp-dot-inner"></div></div>
+        <div class="exp-empty"></div>
       </div>
-      <div class="exp-right">
-        <ul>
-          <li>Automated static timesheets reducing manual effort and improving accuracy.</li>
-          <li>Built lightweight web apps with ReactJS and ExpressJS for operational workflows.</li>
-          <li>Developed Flask real-time applications for faster client-side processes.</li>
-        </ul>
+
+      <!-- 6 RIGHT -->
+      <div class="exp-entry right">
+        <div class="exp-empty"></div>
+        <div class="exp-dot"><div class="exp-dot-inner"></div></div>
+        <div class="exp-card">
+          <div class="exp-date">Jul – Aug 2023</div>
+          <div class="exp-role">Technical Intern</div>
+          <div class="exp-company">Staysafe Solutions</div>
+          <ul>
+            <li>Automated static timesheets reducing manual effort and improving accuracy.</li>
+            <li>Built lightweight web apps with ReactJS and ExpressJS for operational workflows.</li>
+            <li>Developed Flask real-time applications for faster client-side processes.</li>
+          </ul>
+        </div>
       </div>
+
     </div>
   </section>
 
